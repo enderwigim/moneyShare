@@ -15,6 +15,9 @@ class Workerslist {
     _workers.add(worker);
     return true;
   }
+  bool isWorkersEmpty(){
+    return _workers.isEmpty;
+  }
 
   String showEveryWorker(double totalAmmount){
     for (Worker worker in _workers){
@@ -22,7 +25,7 @@ class Workerslist {
     }
     String everyWorker = '';
     for (Worker worker in _workers){
-      everyWorker += "El trabajador ${worker.name} ha trabajado ${worker.daysWorked} días, tiene un salario total de ${worker.totalSalary}€ y un salario diario de ${worker.salaryPerDay}€\n";
+      everyWorker += "El trabajador ${worker.name} ha trabajado ${worker.daysWorked} días, tiene un salario total de ${worker.totalSalary}€\n";
     }
     return everyWorker;
   }

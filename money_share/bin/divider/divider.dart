@@ -19,23 +19,30 @@ class Divider {
 ==================================================
        División de Dinero en Base a Porcentajes
 ==================================================
-[1] Agregar Trabajadores y Total Ganado
-[2] Visualizar Trabajadores
-[3] Volver al menú principal
+[1] Agregar Total Ganado
+[2] Agregar Trabajadores
+[3] Visualizar Trabajadores
+[4] Volver al menú principal
 --------------------------------------------------
 Seleccione una opción:
 """);
   switch (int.parse(stdin.readLineSync() ?? '0')) {
     case 1:
-      addWorkers();
+      print("""--------------------------------------------------""");
+      print("¿Cuánto fue el total del mes?");
+      totalAmmount = double.parse(stdin.readLineSync() ?? '0.00');
+      print("""--------------------------------------------------""");
       break;
     case 2:
+      addWorkers();
+      break;
+    case 3:
       print("${workers.showEveryWorker(totalAmmount)}");
       print("""--------------------------------------------------
       Presiona Enter para volver al menú de divider.""");
       stdin.readLineSync();
       break;
-    case 3:
+    case 4:
       isMenuRunning = false;
       break;
     default:
@@ -44,11 +51,14 @@ Seleccione una opción:
   }
   }
   void addWorkers() {
-    print("""--------------------------------------------------
-    ¿Cuánto fue el total del mes?
-    """);
-    totalAmmount = double.parse(stdin.readLineSync() ?? '0.00');
-
+    if (!workers.isWorkersEmpty()){
+      print("""--------------------------------------------------
+      Desea eliminar a todos los trabajadores actuales? (s/n)""");
+      String deleteWorkers = stdin.readLineSync()?? "n";
+      if (deleteWorkers.toLowerCase() == 's') {
+        workers = Workerslist();
+      }
+    }
     print("""--------------------------------------------------
     ¿Cuántos trabajadores desea agregar?""");
     int workerAmount = int.parse(stdin.readLineSync() ?? '0');
