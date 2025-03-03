@@ -33,7 +33,7 @@ class Listcontributors {
 
     String everyContributor = '';
     for (Contributor contributor in _contributors){
-      everyContributor += "${contributor.name} ha puesto ${contributor.amount}€ y debe pagar ${contributor.totalToPay}€\n";
+      everyContributor += "${contributor.name} ha puesto ${contributor.amount}€, debe pagar ${contributor.totalToPay}€ y le quedan ${contributor.amount - contributor.totalToPay}€\n";
     }
     return everyContributor;
   }
