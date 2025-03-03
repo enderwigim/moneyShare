@@ -1,4 +1,5 @@
 import 'equivalent_sharing/equivalent_sharing.dart';
+import 'divider/divider.dart';
 import 'dart:io';
 
 class Menu { 
@@ -14,7 +15,7 @@ class Menu {
           startEquivalentSharing();
           break;
         case 2:
-          print("Porcentual Divider");
+          startDivider();
           break;
         case 3:
           print("Salir");
@@ -49,5 +50,9 @@ Seleccione una opción:
   void startEquivalentSharing() {
     EquivalentSharing equivalentSharing = EquivalentSharing();
     equivalentSharing.launch();
+  }
+  void startDivider() {
+    Divider divider = Divider();
+    divider.launch();
   }
 }
